@@ -1,12 +1,12 @@
 {
   "name": "nayo-admin-core",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "nayo admin framework",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/Terencesun/nayo-admin-core"
+    "url": "https://github.com/nayo-project/nayo-admin-core"
   },
   "keywords": [
     "nayo",
