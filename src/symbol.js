@@ -1,0 +1,9 @@
+export const app_entrance_temp = Symbol("app_entrance_temp");
+export const instance = Symbol("instance");
+export const default_options = Symbol("default_options");
+export const options_in = Symbol("options_in");
+export const __deal_with_options = Symbol("__deal_with_options");
+export const __add_router_listen = Symbol("__add_router_listen");
+export const __init_nayo_vue = Symbol("__init_nayo_vue");
+export const __init_vue_by_options = Symbol("__init_vue_by_options");
+export const __init_vue = Symbol("__init_vue");
