@@ -2,6 +2,11 @@
 
 
 ## Nayo Admin Framework Core
+![](https://img.shields.io/npm/v/nayo-admin-core.svg)
+![](https://img.shields.io/npm/l/nayo-admin-core.svg)
+![](https://img.shields.io/github/languages/top/Terencesun/nayo-admin-core.svg)
+![](https://img.shields.io/github/last-commit/Terencesun/nayo-admin-core.svg)
+![](https://img.shields.io/github/stars/Terencesun/nayo-admin-core.svg?label=Stars&style=social)
 ---
 
 ### 1.Introduction
