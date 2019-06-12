@@ -1,10 +1,16 @@
-![nayo](https://raw.githubusercontent.com/Terencesun/nayo/master-nodejs/logo.jpg)
+![nayo](https://raw.githubusercontent.com/Terencesun/nayo-admin-core/master/logo.jpg)
 
 
 ## Nayo Admin Framework Core
 ---
+
 ### 1.Introduction
 The Nayo Admin Framwork is a way to help developer buid the admin system, it's supported by Vue.js and iView
+
+---
+nayo-project:
+1. nayo - the simple operation interface for mongoDB by nodejs   (LINK)[https://www.npmjs.com/package/nayo]
+2. nayo-admin - the admin system Front-end solutions 
 ### 2.Install
 ```
 npm install nayo-admin-core --save
