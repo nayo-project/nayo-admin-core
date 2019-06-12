@@ -405,7 +405,7 @@ options = {
 // by this.$i18n etc... http://kazupon.github.io/vue-i18n/introduction.html
 ```
 
-- <nayo-admin></nayo-admin>
+- \<nayo-admin\>\</nayo-admin\>
 
 here is the tag of nayo-admin component, when you use nayo-admin-core, you should write this in the App.vue(the Vue App project entrance file)
 
