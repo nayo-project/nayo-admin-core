@@ -8,6 +8,10 @@
 ![](https://img.shields.io/github/last-commit/Terencesun/nayo-admin-core.svg)
 ![](https://img.shields.io/github/stars/Terencesun/nayo-admin-core.svg?label=Stars&style=social)
 ---
+The core's demo will come at Aug 2019
+
+---
+
 
 ### 1.Introduction
 The Nayo Admin Framwork is a way to help developer buid the admin system, it's supported by Vue.js and iView

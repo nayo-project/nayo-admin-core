@@ -148,28 +148,32 @@ class nayoAdmin {
     * */
     [__add_router_listen]() {
         // listener
-        this[instance].router.beforeEach((to, from, next) => {
-            // load global intercept
-            if (Object.keys(this[options_in].vuex.state.__router_info__).includes("before")) {
-                if (Object.prototype.toString.call(this[options_in].vuex.state.__router_info__.before) != "[object Array]") {
-                    throw new Error("Global Intercept-before should be Array!")
+        if (this[options_in].vuex.state.__router_info__.before && this[options_in].vuex.state.__router_info__.before.length != 0) {
+            this[instance].router.beforeEach((to, from, next) => {
+                // load global intercept
+                if (Object.keys(this[options_in].vuex.state.__router_info__).includes("before")) {
+                    if (Object.prototype.toString.call(this[options_in].vuex.state.__router_info__.before) != "[object Array]") {
+                        throw new Error("Global Intercept-before should be Array!")
+                    }
+                    for (let intercept of this[options_in].vuex.state.__router_info__.before) {
+                        intercept(to, from, next);
+                    }
                 }
-                for (let intercept of this[options_in].vuex.state.__router_info__.before) {
-                    intercept(to, from, next);
-                }
-            }
-        });
+            });
+        }
 
-        this[instance].router.afterEach((to, from) => {
-            if (Object.keys(this[options_in].vuex.state.__router_info__).includes("after")) {
-                if (Object.prototype.toString.call(this[options_in].vuex.state.__router_info__.after) != "[object Array]") {
-                    throw new Error("Global Intercept-before should be Array!")
+        if (this[options_in].vuex.state.__router_info__.after && this[options_in].vuex.state.__router_info__.after.length != 0) {
+            this[instance].router.afterEach((to, from) => {
+                if (Object.keys(this[options_in].vuex.state.__router_info__).includes("after")) {
+                    if (Object.prototype.toString.call(this[options_in].vuex.state.__router_info__.after) != "[object Array]") {
+                        throw new Error("Global Intercept-before should be Array!")
+                    }
+                    for (let intercept of this[options_in].vuex.state.__router_info__.after) {
+                        intercept(to, from);
+                    }
                 }
-                for (let intercept of this[options_in].vuex.state.__router_info__.after) {
-                    intercept(to, from);
-                }
-            }
-        });
+            });
+        }
     }
 
     /*
