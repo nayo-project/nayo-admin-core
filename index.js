@@ -197,6 +197,7 @@ class nayoAdmin {
             store: this[instance].vuex,
             render: h => h(this[app_entrance_temp])
         });
+        window.i18n = this[instance].lang;
     }
 
     /*

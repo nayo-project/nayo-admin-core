@@ -198,6 +198,9 @@ you can use the traditional interface, like
 this.$i18n
 this.$t
 
+// the VueI18n class, you can use this to change the constructor options
+window.i18n 
+
 etc... see more in their document
 ```
 ### 5.Method
@@ -236,7 +239,7 @@ options = [
 // route meta is the object
 // your original router info will add to vuex's state named __router_info__, you can use this.$store.state.__router_info__ to visit the original data
 ```
-**route meta attribute**
+**Route meta attribute**
 <table>
     <tr>
         <th style="width:130px;text-align: center;">Name</th>
@@ -300,7 +303,7 @@ options = [
 3. if you set children, the template\templates will not work
 3. if you set children, the active will not work, however the active will be work in child route meta
 
-**children route meta attribute**
+**Children route meta attribute**
 <table>
     <tr>
         <th style="width:130px;text-align: center;">Name</th>
@@ -346,7 +349,7 @@ options = [
     </tr>
 </table>
 
-**路由导航守卫**
+**Navigation Guards**
 
 ```
 // options struction
