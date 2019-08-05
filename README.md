@@ -160,17 +160,22 @@ window.$nayo.utils.outils
 this.$nayo.utils.cookie
 window.$nayo.utils.cookie
 ```
-4. moment ----> https://www.npmjs.com/package/moment
+4. md5 ----> https://www.npmjs.com/package/md5
+```
+this.$nayo.utils.md5
+window.$nayo.utils.md5
+```
+5. moment ----> https://www.npmjs.com/package/moment
 ```
 this.$nayo.time.moment
 window.$nayo.time.moment
 ```
-5. moment-timezone ----> https://www.npmjs.com/package/moment-timezone
+6. moment-timezone ----> https://www.npmjs.com/package/moment-timezone
 ```
 this.$nayo.time.momentTz
 window.$nayo.time.momentTz
 ```
-6. axios ----> https://www.npmjs.com/package/axios
+7. axios ----> https://www.npmjs.com/package/axios
 ```
 this.$nayo.axios
 window.$nayo.axios
@@ -225,7 +230,6 @@ options = {
 // options struction
 options = [
     {
-        tag: "login",
         name: "login",
         path: "/login",
         independent: true,
@@ -248,16 +252,10 @@ options = [
         <th style="width:598px;text-align: center;">Description</th>
     </tr>
     <tr>
-        <td style="text-align: center;">tag</td>
-        <td style="text-align: center;">String</td>
-        <td style="text-align: center;">true</td>
-        <td style="text-align: center;">uniq label of the route meta, every route has different tag</td>
-    </tr>
-    <tr>
         <td style="text-align: center;">name</td>
         <td style="text-align: center;">String</td>
         <td style="text-align: center;">true</td>
-        <td style="text-align: center;">the route name, you can visit by this.$route.name</td>
+        <td style="text-align: center;">the route name, you can visit by this.$route.name, btw, the name should be unique</td>
     </tr>
     <tr>
         <td style="text-align: center;">path</td>
@@ -355,7 +353,6 @@ options = [
 // options struction
 options = [
     {
-        tag: "login",
         name: "login",
         path: "/login",
         independent: true,
@@ -438,6 +435,7 @@ This library is published under the MIT license. See LICENSE for details.
 - [UnderScore Doc](https://underscorejs.org/)
 - [Outils Doc](https://www.npmjs.com/package/outils)
 - [Js-cookie Doc](https://www.npmjs.com/package/js-cookie)
+- [Md5 Doc](https://www.npmjs.com/package/md5)
 - [Moment Doc](https://www.npmjs.com/package/moment)
 - [Moment-timezone Doc](https://www.npmjs.com/package/moment-timezone)
 - [Axios Doc](https://www.npmjs.com/package/axios)

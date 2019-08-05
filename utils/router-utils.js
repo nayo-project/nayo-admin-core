@@ -8,7 +8,7 @@ class RouterUtils {
 
     _check_every_router_config(router_meta) {
         try {
-            let _required_arr = ["name", "path", "tag"];
+            let _required_arr = ["name", "path"];
             let _not_required_arr = ["icon", "children", "template", "templates", "active", "independent"];
             // required
             for (let _key of _required_arr) {
@@ -23,11 +23,6 @@ class RouterUtils {
                         }
                         break;
                     case "path":
-                        if (Object.prototype.toString.call(router_meta[_key]) != "[object String]") {
-                            error_logger(`the router config meta key ${_key} should be the String!`);
-                        }
-                        break;
-                    case "tag":
                         if (Object.prototype.toString.call(router_meta[_key]) != "[object String]") {
                             error_logger(`the router config meta key ${_key} should be the String!`);
                         }
@@ -50,7 +45,7 @@ class RouterUtils {
                             if (router_meta[_key].length == 0 && !router_meta["template"]) {
                                 error_logger(`the router config meta should have the key-template!`);
                             }
-                            let _childrens_required_arr = ["name", "path", "tag"];
+                            let _childrens_required_arr = ["name", "path"];
                             let _childrens_not_required_arr = ["icon", "template", "templates", "active"];
                             for (let _children of router_meta[_key]) {
                                  for (let _key of _childrens_required_arr) {
@@ -65,11 +60,6 @@ class RouterUtils {
                                              }
                                              break;
                                          case "path":
-                                             if (Object.prototype.toString.call(_children[_key]) != "[object String]") {
-                                                 error_logger(`the router meta[name: ${router_meta["name"]}] children router meta key ${_key} should be String!]`);
-                                             }
-                                             break;
-                                         case "tag":
                                              if (Object.prototype.toString.call(_children[_key]) != "[object String]") {
                                                  error_logger(`the router meta[name: ${router_meta["name"]}] children router meta key ${_key} should be String!]`);
                                              }

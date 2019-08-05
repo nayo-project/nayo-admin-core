@@ -2,6 +2,8 @@
 // https://www.npmjs.com/package/vue-i18n
 // https://www.npmjs.com/package/axios
 // https://www.npmjs.com/package/outils
+// https://www.npmjs.com/package/js-cookie
+// https://www.npmjs.com/package/md5
 // https://underscorejs.org/#
 // http://momentjs.cn/docs/
 // http://momentjs.cn/timezone/docs/
@@ -17,12 +19,13 @@ import moment from "moment";
 import momentTz from "moment-timezone";
 import _ from "underscore";
 import outils from "outils";
+import md5 from "md5";
 import axios from "axios";
 import Cookie from "js-cookie";
 
-import { app_entrance_temp, instance, default_options, options_in, __deal_with_options, __add_router_listen, __init_nayo_vue, __init_vue_by_options, __init_vue } from "./src/symbol";
+import {app_entrance_temp, __admin, __has_read_once, instance, default_options, options_in, __deal_with_options, __add_router_listen, __init_vue, __init} from "./src/symbol";
 
-let __version__ = "1.0.0";
+let __version__ = "1.0.5";
 let __author__ = "Terence.Sun";
 let __email__ = "terence@segofun.com";
 
@@ -32,10 +35,12 @@ let install_status = false;
 window.$iView = iView;
 // load the nayo
 window.$nayo = {
+    version: __version__,
     utils: {
         underScore: _,
         outils: outils,
-        cookie: Cookie
+        cookie: Cookie,
+        md5: md5
     },
     time: {
         moment: moment,
@@ -54,7 +59,8 @@ class nayoAdmin {
         if (!install_status) {
             error_logger("Vue.use() should be done before new nayoAdmin!");
         }
-        this.admin = null;
+        this[__admin] = null;
+        this[__has_read_once] = false;
         this[app_entrance_temp] = app_entrance;
         this[instance] = {
             vuex: null,
@@ -81,7 +87,19 @@ class nayoAdmin {
             }
         }
         this[options_in] = this[__deal_with_options](options);
-        this[__init_nayo_vue]();
+    }
+
+    set admin(data) {
+        this[__admin] = data;
+    }
+
+    get admin() {
+        if (!this[__has_read_once]) {
+            this[__init]();
+        } else {
+            this[__has_read_once] = true;
+        }
+        return this[__admin];
     }
 
     /*
@@ -177,20 +195,13 @@ class nayoAdmin {
     }
 
     /*
-    * init nayo vue
+    * init vue
     * */
-    [__init_nayo_vue]() {
-        Vue.use(iView);
-        Vue.use(Vuex);
-        Vue.use(vueRouter);
-        Vue.use(VueI18n);
-        this[__init_vue]();
-    }
-
-    /*
-    * init vue via options
-    * */
-    [__init_vue_by_options]() {
+    [__init_vue]() {
+        this[instance].vuex = new Vuex.Store(this[options_in].vuex);
+        this[instance].router = new vueRouter(this[options_in].router);
+        this[instance].lang = new VueI18n(this[options_in].lang);
+        this[__add_router_listen]();
         this.admin = new Vue({
             i18n: this[instance].lang,
             router: this[instance].router,
@@ -198,17 +209,7 @@ class nayoAdmin {
             render: h => h(this[app_entrance_temp])
         });
         window.i18n = this[instance].lang;
-    }
-
-    /*
-    * refresh vue
-    * */
-    [__init_vue]() {
-        this[instance].vuex = new Vuex.Store(this[options_in].vuex);
-        this[instance].router = new vueRouter(this[options_in].router);
-        this[instance].lang = new VueI18n(this[options_in].lang);
-        this[__add_router_listen]();
-        this[__init_vue_by_options]();
+        window.$root = this[__admin];
     }
 
     // the register only work by the latest one
@@ -231,7 +232,6 @@ class nayoAdmin {
                 this[options_in]["vuex"][_key] = options[_key];
             }
         }
-        this[__init_vue]();
     }
 
     /*
@@ -246,7 +246,6 @@ class nayoAdmin {
         _route_hand.format_router_info({routes: options});
         this[options_in].vuex.state["__router_info__"] = options;
         this[options_in].router.routes = _route_hand.gen_routers({routes: options});
-        this[__init_vue]();
     }
 
     /*
@@ -259,6 +258,16 @@ class nayoAdmin {
         }
         let _lang_hand = new LangUtils();
         this[options_in].lang.messages = _lang_hand.arrange_lang(options);
+    }
+
+    /*
+    * init admin
+    * */
+    [__init]() {
+        Vue.use(iView);
+        Vue.use(Vuex);
+        Vue.use(vueRouter);
+        Vue.use(VueI18n);
         this[__init_vue]();
     }
 }
@@ -266,10 +275,12 @@ class nayoAdmin {
 nayoAdmin.install = function install(_Vue) {
     Vue = _Vue;
     Vue.prototype.$nayo = {
+        version: __version__,
         utils: {
             underScore: _,
             outils: outils,
-            cookie: Cookie
+            cookie: Cookie,
+            md5: md5
         },
         time: {
             moment: moment,
