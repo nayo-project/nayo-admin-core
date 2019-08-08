@@ -144,6 +144,12 @@ $nayo is a tools box, you can use it to help you build admin
 
 $nayo is mounted at window and vue prototype
 
+- $root
+
+$root is the root of vue app instance
+
+$root is only mouted at window
+
 **Tool List:**
 1. underScore ----> https://underscorejs.org/
 ```
@@ -308,12 +314,6 @@ options = [
         <th style="width:100px;text-align: center;">Type</th>
         <th style="width:100px;text-align: center;">Required</th>
         <th style="width:598px;text-align: center;">Description</th>
-    </tr>
-    <tr>
-        <td style="text-align: center;">tag</td>
-        <td style="text-align: center;">String</td>
-        <td style="text-align: center;">true</td>
-        <td style="text-align: center;">the same as parent route meta</td>
     </tr>
     <tr>
         <td style="text-align: center;">name</td>
