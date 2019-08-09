@@ -25,7 +25,7 @@ import Cookie from "js-cookie";
 
 import {app_entrance_temp, __admin, __has_read_once, instance, default_options, options_in, __deal_with_options, __add_router_listen, __init_vue, __init} from "./src/symbol";
 
-let __version__ = "1.0.5";
+let __version__ = "1.0.7";
 let __author__ = "Terence.Sun";
 let __email__ = "terence@segofun.com";
 

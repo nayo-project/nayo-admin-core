@@ -1,6 +1,6 @@
 {
   "name": "nayo-admin-core",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "nayo admin framework",
   "main": "index.js",
   "scripts": {},
