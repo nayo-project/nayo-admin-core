@@ -8,10 +8,26 @@
 ![](https://img.shields.io/github/last-commit/Terencesun/nayo-admin-core.svg)
 ![](https://img.shields.io/github/stars/Terencesun/nayo-admin-core.svg?label=Stars&style=social)
 ---
-The core's demo will come at Aug 2019
+The core's demo
+
+Nayo Admin DEMO --> [link](https://nayo-project.github.io/nayo-admin-demo/)
+
+Nayo Admin Template --> [link](https://github.com/nayo-project/nayo-admin)
+
+Nayo Admin Template Simple --> [link](https://github.com/nayo-project/nayo-admin-simple)
+
+Nayo Admin Layout --> [link](https://github.com/nayo-project/nayo-admin-layout)
+
+Nayo Admin Doc for Chinese --> [link](https://nayo-project.github.io/nayo-admin-doc-cn/)
 
 ---
+### nayo-project
+Here are other projects in nayo-project, if it help u welcome to **star this project**~ thx~
 
+- nayo-mongo --> [link](https://github.com/nayo-project/nayo)
+- nayo-admin-core --> [link](https://github.com/nayo-project/nayo-admin-core)
+- nayo-admin --> [link](https://github.com/nayo-project/nayo-admin)
+---
 
 ### 1.Introduction
 The Nayo Admin Framwork is a way to help developer buid the admin system, it's supported by Vue.js and iView
